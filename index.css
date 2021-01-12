@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+
+body {
+  background: #51bbc9;
+  font-family: "Permanent Marker";
+  font-size: 1.5rem;
+  padding: 10px 100px 10px 10px;
+}
