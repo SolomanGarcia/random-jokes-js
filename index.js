@@ -1,8 +1,19 @@
-const setupDiv = document.getElementById(setup);
-const punchlineDiv = document.getElementById(punchline);
-const punchlineBtn = document.getElementById(punchlineBtn);
+const setupDiv = document.getElementById("setup");
+const punchlineDiv = document.getElementById("punchline");
+const punchlineBtn = document.getElementById("punchlineBtn");
 const newJokeBtn = document.getElementById("newJokeBtn");
 let punchline;
+
+punchlineBtn.addEventListener("click", getPunchline);
+
+newJokeBtn.addEventListener("click", getJoke);
+
+function getPunchline() {
+  punchlineDiv.innerHTML = punchline;
+  punchlineDiv.classList.add("bubble");
+  punchlineBtn.classList.toggle("hidden");
+  newJokeBtn.classList.toggle("hidden");
+}
 
 async function getJoke() {
   const jokePromise = await fetch(
@@ -13,6 +24,9 @@ async function getJoke() {
   setupDiv.innerHTML = joke[0].setup;
 
   punchline = joke[0].punchline;
+
+  punchlineDiv.innerHTML = "";
+  punchlineDiv.classList.remove("bubble");
 
   punchlineBtn.classList.toggle("hidden");
   newJokeBtn.classList.toggle("hidden");
